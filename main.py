@@ -28,21 +28,32 @@ paint.new_canvas()
 tools = [Pencil(), Eraser(), Line(), Rectangle(), FilledRectangle(), Circle(), FilledCircle(), Bucket()]
 state.tool = tools[0]
 
-for i, tool in enumerate(tools):
-    x = 25 + (i % 2) * 60
-    y = 25 + (i // 2) * 60
-    toolbar.add(ToolButton(x, y, 50, 50, tool))
+# Ferramentas
+toolbar.add(ToolButton(25, 25, 50, 50, Pencil()))
+toolbar.add(ToolButton(85, 25, 50, 50, Eraser()))
+toolbar.add(ToolButton(25, 85, 50, 50, Line()))
+toolbar.add(ToolButton(85, 85, 50, 50, Rectangle()))
+toolbar.add(ToolButton(25, 145, 50, 50, FilledRectangle()))
+toolbar.add(ToolButton(85, 145, 50, 50, Circle()))
+toolbar.add(ToolButton(25, 205, 50, 50, FilledCircle()))
+toolbar.add(ToolButton(85, 205, 50, 50, Bucket()))
 
-for i, thickness in enumerate([1, 3, 5]):
-    toolbar.add(ThicknessButton(25 + i * 40, 285, 30, 30, thickness))
+# Espessura
+toolbar.add(ThicknessButton(25, 285, 30, 30, 1))
+toolbar.add(ThicknessButton(65, 285, 30, 30, 3))
+toolbar.add(ThicknessButton(105, 285, 30, 30, 5))
 
-colors = [BLACK, WHITE, RED, GREEN, BLUE, YELLOW, ORANGE, PURPLE]
+# Cores
+toolbar.add(ColorButton(25, 345, 30, 30, BLACK))
+toolbar.add(ColorButton(65, 345, 30, 30, WHITE))
+toolbar.add(ColorButton(25, 385, 30, 30, RED))
+toolbar.add(ColorButton(65, 385, 30, 30, GREEN))
+toolbar.add(ColorButton(25, 425, 30, 30, BLUE))
+toolbar.add(ColorButton(65, 425, 30, 30, YELLOW))
+toolbar.add(ColorButton(25, 465, 30, 30, ORANGE))
+toolbar.add(ColorButton(65, 465, 30, 30, PURPLE))
 
-for i, color in enumerate(colors):
-    x = 25 + (i % 2) * 40
-    y = 345 + (i // 2) * 40
-    toolbar.add(ColorButton(x, y, 30, 30, color))
-
+# Ações
 toolbar.add(ActionButton(25, HEIGHT - 75, 50, 50, paint.new_canvas))
 toolbar.add(ActionButton(85, HEIGHT - 75, 50, 50, paint.save))
 
