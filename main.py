@@ -14,6 +14,8 @@ from tools.utils.line import Line
 from tools.utils.pencil import Pencil
 from tools.toolbar import Toolbar
 from tools.utils.rectangle import Rectangle
+from buttons.save_button import SaveButton
+from buttons.clear_button import ClearButton
 
 paint = Paint(WIDTH, HEIGHT)
 drawer = paint.get_drawer()
@@ -54,8 +56,8 @@ toolbar.add(ColorButton(25, 465, 30, 30, ORANGE))
 toolbar.add(ColorButton(65, 465, 30, 30, PURPLE))
 
 # Ações
-toolbar.add(ActionButton(25, HEIGHT - 75, 50, 50, paint.new_canvas))
-toolbar.add(ActionButton(85, HEIGHT - 75, 50, 50, paint.save))
+toolbar.add(ClearButton(25, HEIGHT - 75, 50, 50, paint.new_canvas))
+toolbar.add(SaveButton(85, HEIGHT - 75, 50, 50, paint.save))
 
 drawing = False
 
